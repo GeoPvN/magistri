@@ -9,7 +9,7 @@
 	<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title>CallApp - Premix</title>
+			<title>CallApp - Magistri</title>
 
 			<link rel="shortcut icon" type="image/ico" href="media/images/CA-mini.png" />
 			<link rel="stylesheet" type="text/css" media="screen" href="media/css/reset/reset.css" />
