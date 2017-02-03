@@ -11,7 +11,7 @@ $group          = $_SESSION['GROUPID'];
 $checkState     = $_REQUEST['checkState'];
 $extensions     = array();
 $inuse          = Array();
-$filter_queues  = array("2182414");
+$filter_queues  = array("2252611","2471057","2912755");
 
 
 $am             = new AsteriskManager();
