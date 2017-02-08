@@ -6,6 +6,14 @@ $data	= '';
 
 switch ($action) {
 	case 'incomming_call':
+	    $num = mysql_num_rows(" SELECT id
+                                FROM `asterisk_incomming`
+                                WHERE DATE(datetime) != DATE(NOW()) AND SUBSTRING_INDEX(file_name,'.',-1) = 'wav'");
+	    if($num != 0){
+	    mysql_query("UPDATE `asterisk_incomming` SET
+                    `file_name`=CONCAT(SUBSTRING_INDEX(file_name,'.',2),'.mp3')
+                    WHERE DATE(datetime) != DATE(NOW()) AND SUBSTRING_INDEX(file_name,'.',-1) = 'wav'");
+	    }
         $incomming_call_day = mysql_query(" SELECT 	COUNT(*) AS `day_count`,
                                                     DATE(call_datetime) AS `day`
                                             FROM 	`asterisk_incomming`
