@@ -11,8 +11,14 @@ $group          = $_SESSION['GROUPID'];
 $checkState     = $_REQUEST['checkState'];
 $extensions     = array();
 $inuse          = Array();
-$filter_queues  = array("2252611","2471057","2912755");
-
+$filter_queues  = array();
+$req = mysql_query("SELECT number
+                    FROM `queue`
+                    WHERE actived = 1");
+ 
+while ($res = mysql_fetch_assoc($req)){
+    $filter_queues[] = $res['number'];
+}
 
 $am             = new AsteriskManager();
 

@@ -1,13 +1,19 @@
 <?php
- 
+require_once '../includes/classes/core.php';
 $time = microtime();
 $time = explode(' ', $time);
 $time = $time[1] + $time[0];
 $begintime = $time;
 $inuse      = Array();
 $dict_queue = Array();
-$filter_queues = array("2252611","2471057","2912755");
+$filter_queues = array();
+$req = mysql_query("SELECT number
+                    FROM `queue`
+                    WHERE actived = 1");
 
+while ($res = mysql_fetch_assoc($req)){
+    $filter_queues[] = $res['number'];
+}
 require("config.php");
 require("asmanager.php");
 require("realtime_functions.php");
