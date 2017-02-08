@@ -6,17 +6,26 @@ $time = $time[1] + $time[0];
 $begintime = $time;
 $inuse      = Array();
 $dict_queue = Array();
-$filter_queues = array("2252611","2471057","2912755");
+$filter_queues = array();
 require_once '../includes/classes/core.php';
-      $qv=mysql_query("SELECT persons.`name`,
-        			          last_extension
-                       FROM   `users`
-					   JOIN   persons ON users.person_id=persons.id
-                       WHERE  logged = 1 AND NOT ISNULL(last_extension)");
-      while ( $aRow = mysql_fetch_array( $qv ) )
-      {
-          $ext[]=$aRow;
-      }         
+
+    $req = mysql_query("SELECT number
+                        FROM `queue`
+                        WHERE actived = 1");
+    	
+    while ($res = mysql_fetch_assoc($req)){
+        $filter_queues[] = $res['number'];
+    }
+
+    $qv=mysql_query("SELECT persons.`name`,
+    			          last_extension
+                   FROM   `users`
+    			   JOIN   persons ON users.person_id=persons.id
+                   WHERE  logged = 1 AND NOT ISNULL(last_extension)");
+    while ( $aRow = mysql_fetch_array( $qv ) )
+    {
+      $ext[]=$aRow;
+    }         
    
       
 
