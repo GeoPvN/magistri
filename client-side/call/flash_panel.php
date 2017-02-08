@@ -89,7 +89,7 @@ require_once("AsteriskManager/config.php");
 	padding: 10px;
 }
 #flesh_table tbody tr td,#tb tbody tr td{
-	height: 70px;
+	height: 35px;
 	padding-left: 10px;
 	text-align: left;
 	vertical-align: middle;	
