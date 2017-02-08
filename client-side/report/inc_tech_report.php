@@ -1694,7 +1694,7 @@
 						    </select>
 					   </td>
 					</tr> 
-					</tbody>
+					</tbody> 
 				</table>
 			</div>
 			<div style="width: 27%; float:left; margin-left:75px;">
