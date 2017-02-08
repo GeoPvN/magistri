@@ -1723,9 +1723,19 @@
 					   	<td>
 							ხელმისაწვდომია<br><br>
 						    <select name="List_Queue_available" multiple="multiple" id="myform_List_Queue_from" size="10" style="height: 100px;width: 125px;" >
-							    <option value="2252611">2252611</option>
-							    <option value="2471057">2471057</option>
-							    <option value="2912755">2912755</option>				    
+							   <?php
+							    $data = '';
+							    include '../../includes/classes/core.php';
+							    
+							    $req = mysql_query("SELECT number
+                                                    FROM `queue`
+                                                    WHERE actived = 1");
+							    
+							    while ($res = mysql_fetch_assoc($req)){
+							        $data .= '<option value="'.$res['number'].'">'.$res['number'].'</option>';
+							    }
+							    echo $data;
+							    ?>			    
 							</select>
 						</td>
 						<td align="left">
@@ -1753,9 +1763,19 @@
 					<tbody><tr>
 					   <td>ხელმისაწვდომია<br><br>
 					    <select size="10" name="List_Agent_available" multiple="multiple" id="myform_List_Agent_from" style="height: 100px;width: 125px;">
-							<option value="151">151</option>
-							<option value="152">152</option>
-							<option value="153">153</option>
+							<?php
+							$data = '';
+						    
+						    $req = mysql_query("SELECT ext
+                                                FROM `extension`
+                                                WHERE actived = 1");
+						    
+						    while ($res = mysql_fetch_assoc($req)){
+						        $data .= '<option value="'.$res['ext'].'">'.$res['ext'].'</option>';
+						    }
+						    echo $data;
+						    mysql_close();
+						    ?>
 						</select>
 					</td>
 					<td align="left">

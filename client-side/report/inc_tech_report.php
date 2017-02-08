@@ -1666,6 +1666,7 @@
 							ხელმისაწვდომია<br><br>
 						    <select name="List_Queue_available" multiple="multiple" id="myform_List_Queue_from" size="10" style="height: 100px;width: 125px;" >
 							    <?php
+							    $data = '';
 							    include '../../includes/classes/core.php';
 							    
 							    $req = mysql_query("SELECT number
@@ -1705,7 +1706,7 @@
 					   <td>ხელმისაწვდომია<br><br>
 					    <select size="10" name="List_Agent_available" multiple="multiple" id="myform_List_Agent_from" style="height: 100px;width: 125px;">
 							<?php
-						    include '../../includes/classes/core.php';
+							$data = '';
 						    
 						    $req = mysql_query("SELECT ext
                                                 FROM `extension`
